@@ -25,7 +25,7 @@
       document.getElementById('leagueTitle').textContent = `Calendario - ${leagueSlug}`;
 
       // 2️⃣ Cargar lista de equipos para nombres completos
-      const teamsListFile = `data/${leagueSlug}/teams_list.yaml`;
+      const teamsListFile = `data/${leagueSlug}/teams_list.yml`;
       let teams = [];
       try {
         const resTeams = await fetch(teamsListFile);

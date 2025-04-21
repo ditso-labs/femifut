@@ -1,41 +1,47 @@
 (async () => {
     // 1️⃣ Detectar slug de liga desde URL
     const url = new URL(window.location.href);
-    // Primero intenta ?league=PDH, luego toma el último segmento del path
     const leagueSlug = url.searchParams.get("league")
       || url.pathname.replace(/\/$/, "").split("/").pop()
       || "PDH";  // fallback
   
     // 2️⃣ Construir rutas dinámicas
-    const baseDir    = `data/${leagueSlug}`;
-    const statsFile  = `${baseDir}/stats.yaml`;
-    const teamsDir   = `${baseDir}/teams`;
+    const baseDir       = `data/${leagueSlug}`;
+    const statsFile     = `${baseDir}/stats.yaml`;
+    const teamsListFile = `${baseDir}/teams_list.yaml`;
   
-    // 3️⃣ Cargar estadísticas y nombres de equipo
-    const response   = await fetch(statsFile);
-    const statsYaml  = await response.text();
-    const stats      = jsyaml.load(statsYaml).stats;
-    const teamSlugs  = Object.keys(stats);
-    const teamNames  = {};
+    // 3️⃣ Cargar estadísticas
+    const respStats  = await fetch(statsFile);
+    const textStats  = await respStats.text();
+    const stats      = jsyaml.load(textStats).stats;
+    const slugs      = Object.keys(stats);
   
-    await Promise.all(teamSlugs.map(async slug => {
-      try {
-        const res      = await fetch(`${teamsDir}/${slug}/team.yml`);
-        const teamYaml = await res.text();
-        const data     = jsyaml.load(teamYaml);
-        teamNames[slug] = data.name || slug;
-      } catch {
-        console.warn(`No se pudo cargar team.yml de ${slug}`);
-        teamNames[slug] = slug;
-      }
-    }));
+    // 4️⃣ Cargar lista de equipos y generar el mapeo slug → nombre real
+    const respTeamsList = await fetch(teamsListFile);
+    const textTeamsList = await respTeamsList.text();
+    const teamsListData = jsyaml.load(textTeamsList).teams;
+    const teamNames     = {};
   
-    // 4️⃣ Renderizar tabla
-    const rows = Object.entries(stats).map(([slug, data]) => ({
+    teamsListData.forEach(fullName => {
+      // Generamos el mismo slug que usamos en stats:
+      const slug = fullName
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // quitar tildes
+        .replace(/[^a-z0-9]/g, "");                      // quitar espacios y símbolos
+  
+      teamNames[slug] = fullName;
+    });
+  
+    // Para seguridad: cualquier slug faltante, lo mostramos tal cual
+    slugs.forEach(s => {
+      if (!teamNames[s]) teamNames[s] = s;
+    });
+  
+    // 5️⃣ Renderizar tabla
+    const rows = slugs.map(slug => ({
       nombre: teamNames[slug],
-      ...data
-    }));
-    rows.sort((a, b) =>
+      ...stats[slug]
+    })).sort((a, b) =>
       b.points - a.points ||
       b.goal_difference - a.goal_difference ||
       b.goals_for - a.goals_for

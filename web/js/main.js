@@ -8,7 +8,7 @@
     // 2️⃣ Construir rutas dinámicas
     const baseDir       = `data/${leagueSlug}`;
     const statsFile     = `${baseDir}/stats.yaml`;
-    const teamsListFile = `${baseDir}/teams_list.yaml`;
+    const teamsListFile = `${baseDir}/teams_list.yml`;
   
     // 3️⃣ Cargar estadísticas
     const respStats  = await fetch(statsFile);

@@ -1,0 +1,127 @@
+round:
+  '1':
+  - away: truenoverde
+    home: condoresdelsur
+  - away: torosdeacero
+    home: furiaazul
+  - away: tiburonesrojos
+    home: halconesdorados
+  - away: panterasnegras
+    home: lobosfc
+  '10':
+  - away: condoresdelsur
+    home: tiburonesrojos
+  - away: torosdeacero
+    home: panterasnegras
+  - away: truenoverde
+    home: lobosfc
+  - away: furiaazul
+    home: halconesdorados
+  '11':
+  - away: condoresdelsur
+    home: panterasnegras
+  - away: tiburonesrojos
+    home: lobosfc
+  - away: torosdeacero
+    home: halconesdorados
+  - away: truenoverde
+    home: furiaazul
+  '12':
+  - away: condoresdelsur
+    home: lobosfc
+  - away: panterasnegras
+    home: halconesdorados
+  - away: tiburonesrojos
+    home: furiaazul
+  - away: torosdeacero
+    home: truenoverde
+  '13':
+  - away: condoresdelsur
+    home: halconesdorados
+  - away: lobosfc
+    home: furiaazul
+  - away: panterasnegras
+    home: truenoverde
+  - away: tiburonesrojos
+    home: torosdeacero
+  '14':
+  - away: condoresdelsur
+    home: furiaazul
+  - away: halconesdorados
+    home: truenoverde
+  - away: lobosfc
+    home: torosdeacero
+  - away: panterasnegras
+    home: tiburonesrojos
+  '2':
+  - away: torosdeacero
+    home: condoresdelsur
+  - away: tiburonesrojos
+    home: truenoverde
+  - away: panterasnegras
+    home: furiaazul
+  - away: lobosfc
+    home: halconesdorados
+  '3':
+  - away: tiburonesrojos
+    home: condoresdelsur
+  - away: panterasnegras
+    home: torosdeacero
+  - away: lobosfc
+    home: truenoverde
+  - away: halconesdorados
+    home: furiaazul
+  '4':
+  - away: panterasnegras
+    home: condoresdelsur
+  - away: lobosfc
+    home: tiburonesrojos
+  - away: halconesdorados
+    home: torosdeacero
+  - away: furiaazul
+    home: truenoverde
+  '5':
+  - away: lobosfc
+    home: condoresdelsur
+  - away: halconesdorados
+    home: panterasnegras
+  - away: furiaazul
+    home: tiburonesrojos
+  - away: truenoverde
+    home: torosdeacero
+  '6':
+  - away: halconesdorados
+    home: condoresdelsur
+  - away: furiaazul
+    home: lobosfc
+  - away: truenoverde
+    home: panterasnegras
+  - away: torosdeacero
+    home: tiburonesrojos
+  '7':
+  - away: furiaazul
+    home: condoresdelsur
+  - away: truenoverde
+    home: halconesdorados
+  - away: torosdeacero
+    home: lobosfc
+  - away: tiburonesrojos
+    home: panterasnegras
+  '8':
+  - away: condoresdelsur
+    home: truenoverde
+  - away: furiaazul
+    home: torosdeacero
+  - away: halconesdorados
+    home: tiburonesrojos
+  - away: lobosfc
+    home: panterasnegras
+  '9':
+  - away: condoresdelsur
+    home: torosdeacero
+  - away: truenoverde
+    home: tiburonesrojos
+  - away: furiaazul
+    home: panterasnegras
+  - away: halconesdorados
+    home: lobosfc

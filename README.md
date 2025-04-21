@@ -1,2 +1,2 @@
 # femifut
-Football web based league/cup emulator
+Football web based league/cup emulator static

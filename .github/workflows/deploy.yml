@@ -1,23 +1,51 @@
-name: Deploy to GitHub Pages
+name: 🚀 Deploy to GitHub Pages via peaceiris
 
 on:
   push:
     branches: [main]
 
+permissions:
+  contents: write     # Permite hacer push a gh-pages
+  pages: write        # Permite desplegar Pages
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload `web/` folder
-        uses: actions/upload-pages-artifact@v2
         with:
-          path: web
+          persist-credentials: true  # Usa GITHUB_TOKEN para push
+          fetch-depth: 0             # Necesario para peaceiris
+
+      - name: Copy data files into web/data
+        run: |
+          # limpiar y recrear carpeta base
+          rm -rf web/data
+          mkdir -p web/data
+
+          for league_dir in leagues/*; do
+            if [ -d "$league_dir" ]; then
+              league=$(basename "$league_dir")
+              mkdir -p "web/data/$league"
+              for file in stats.yaml teams_list.yml schedule.yml; do
+                src="$league_dir/$file"
+                dst="web/data/$league/$file"
+                if [ -f "$src" ]; then
+                  cp "$src" "$dst"
+                fi
+              done
+            fi
+          done
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web
+          # Opcionales para autoría del commit:
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          allow_empty_commit: true   # en caso de no cambios

@@ -1,0 +1,26 @@
+abbreviation: TR
+budget:
+  amount: 299913430
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 63430
+  nickname: La Hinchada de Tiburones Rojos
+founded: 2010
+history:
+  championships: 0
+  last_title: 2014
+logo: media/tiburonesrojos_logo.png
+name: Tiburones Rojos
+rivalries: []
+short_name: TR
+slug: tiburonesrojos
+social:
+  instagram: '@tiburonesrojos_oficial'
+  twitter: '@tiburonesrojos'
+  website: https://tiburonesrojos.hoso
+stadium: Estadio Tiburones

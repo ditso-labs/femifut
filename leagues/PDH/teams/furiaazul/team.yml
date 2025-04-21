@@ -1,0 +1,26 @@
+abbreviation: FA
+budget:
+  amount: 280407160
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 57160
+  nickname: La Hinchada de Furia Azul
+founded: 1980
+history:
+  championships: 0
+  last_title: 2000
+logo: media/furiaazul_logo.png
+name: Furia Azul
+rivalries: []
+short_name: FA
+slug: furiaazul
+social:
+  instagram: '@furiaazul_oficial'
+  twitter: '@furiaazul'
+  website: https://furiaazul.hoso
+stadium: Estadio Furia

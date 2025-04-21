@@ -1,0 +1,26 @@
+abbreviation: PN
+budget:
+  amount: 210334930
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 84930
+  nickname: La Hinchada de Panteras Negras
+founded: 1990
+history:
+  championships: 0
+  last_title: 2010
+logo: media/panterasnegras_logo.png
+name: Panteras Negras
+rivalries: []
+short_name: PN
+slug: panterasnegras
+social:
+  instagram: '@panterasnegras_oficial'
+  twitter: '@panterasnegras'
+  website: https://panterasnegras.hoso
+stadium: Estadio Panteras

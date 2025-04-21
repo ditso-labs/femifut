@@ -1,0 +1,26 @@
+abbreviation: TDA
+budget:
+  amount: 293639083
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 89083
+  nickname: La Hinchada de Toros de Acero
+founded: 1983
+history:
+  championships: 3
+  last_title: 2011
+logo: media/torosdeacero_logo.png
+name: Toros de Acero
+rivalries: []
+short_name: TDA
+slug: torosdeacero
+social:
+  instagram: '@torosdeacero_oficial'
+  twitter: '@torosdeacero'
+  website: https://torosdeacero.hoso
+stadium: Estadio Toros

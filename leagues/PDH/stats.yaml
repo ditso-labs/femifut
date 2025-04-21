@@ -1,0 +1,73 @@
+stats:
+  condoresdelsur:
+    draws: 3
+    goal_difference: 2
+    goals_against: 9
+    goals_for: 11
+    losses: 2
+    played: 8
+    points: 12
+    wins: 3
+  furiaazul:
+    draws: 4
+    goal_difference: -1
+    goals_against: 11
+    goals_for: 10
+    losses: 2
+    played: 8
+    points: 10
+    wins: 2
+  halconesdorados:
+    draws: 4
+    goal_difference: 1
+    goals_against: 10
+    goals_for: 11
+    losses: 2
+    played: 8
+    points: 10
+    wins: 2
+  lobosfc:
+    draws: 1
+    goal_difference: -4
+    goals_against: 15
+    goals_for: 11
+    losses: 5
+    played: 8
+    points: 7
+    wins: 2
+  panterasnegras:
+    draws: 2
+    goal_difference: 0
+    goals_against: 18
+    goals_for: 18
+    losses: 3
+    played: 8
+    points: 11
+    wins: 3
+  tiburonesrojos:
+    draws: 2
+    goal_difference: 9
+    goals_against: 11
+    goals_for: 20
+    losses: 2
+    played: 8
+    points: 14
+    wins: 4
+  torosdeacero:
+    draws: 1
+    goal_difference: -3
+    goals_against: 12
+    goals_for: 9
+    losses: 3
+    played: 8
+    points: 13
+    wins: 4
+  truenoverde:
+    draws: 3
+    goal_difference: -4
+    goals_against: 16
+    goals_for: 12
+    losses: 3
+    played: 8
+    points: 9
+    wins: 2

@@ -1,0 +1,26 @@
+abbreviation: LF
+budget:
+  amount: 273017781
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 67781
+  nickname: La Hinchada de Lobos FC
+founded: 2001
+history:
+  championships: 1
+  last_title: 2013
+logo: media/lobosfc_logo.png
+name: Lobos FC
+rivalries: []
+short_name: LF
+slug: lobosfc
+social:
+  instagram: '@lobosfc_oficial'
+  twitter: '@lobosfc'
+  website: https://lobosfc.hoso
+stadium: Estadio Lobos

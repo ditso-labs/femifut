@@ -1,0 +1,26 @@
+abbreviation: TV
+budget:
+  amount: 225038155
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 88155
+  nickname: La Hinchada de Trueno Verde
+founded: 2015
+history:
+  championships: 5
+  last_title: 2019
+logo: media/truenoverde_logo.png
+name: Trueno Verde
+rivalries: []
+short_name: TV
+slug: truenoverde
+social:
+  instagram: '@truenoverde_oficial'
+  twitter: '@truenoverde'
+  website: https://truenoverde.hoso
+stadium: Estadio Trueno

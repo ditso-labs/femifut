@@ -1,0 +1,26 @@
+abbreviation: HD
+budget:
+  amount: 245578219
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 78219
+  nickname: La Hinchada de Halcones Dorados
+founded: 1999
+history:
+  championships: 9
+  last_title: 2019
+logo: media/halconesdorados_logo.png
+name: Halcones Dorados
+rivalries: []
+short_name: HD
+slug: halconesdorados
+social:
+  instagram: '@halconesdorados_oficial'
+  twitter: '@halconesdorados'
+  website: https://halconesdorados.hoso
+stadium: Estadio Halcones

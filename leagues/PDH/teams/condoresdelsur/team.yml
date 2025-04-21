@@ -1,0 +1,26 @@
+abbreviation: CDS
+budget:
+  amount: 217007562
+  currency: CRC
+city: Ciudad Genérica
+coach: Nombre del Entrenador
+colors:
+  primary: '#0000FF'
+  secondary: '#FFFFFF'
+fans:
+  estimated_fanbase: 57562
+  nickname: La Hinchada de Cóndores del Sur
+founded: 1982
+history:
+  championships: 2
+  last_title: 2002
+logo: media/condoresdelsur_logo.png
+name: Cóndores del Sur
+rivalries: []
+short_name: CDS
+slug: condoresdelsur
+social:
+  instagram: '@condoresdelsur_oficial'
+  twitter: '@condoresdelsur'
+  website: https://condoresdelsur.hoso
+stadium: Estadio Cóndores

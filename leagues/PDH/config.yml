@@ -1,0 +1,56 @@
+name: Primera División de Hoso
+abbreviation: PDH
+description: >
+  The Primera División de Hoso (PDH) is the top professional football division in Hoso.
+  It is contested by 20 teams, with the season running from August to May.
+  The league operates on a system of promotion and relegation with the Segunda División de Hoso.
+
+country: Hoso
+format: league
+is_first_division: true
+relegation: true
+secondary_division: PDH2
+
+season:
+  start_month: August
+  end_month: May
+  year: 2025
+  matchdays: 38
+  teams: 20
+
+rules:
+  points_per_win: 3
+  points_per_draw: 1
+  points_per_loss: 0
+  yellow_card_suspension: 3
+  red_card_suspension: 1
+  max_yellows_before_reset: 5
+
+injuries:
+  probability_per_match: 0.03
+  min_days_out: 7
+  max_days_out: 60
+
+suspensions:
+  accumulate_yellows: true
+  yellows_limit: 3
+  red_card_auto_suspend: true
+
+match_simulation:
+  event_probabilities:
+    goal: 0.05
+    assist: 0.04
+    yellow_card: 1
+    red_card: 0.01
+    injury: 0.001
+    substitution: 0.1
+    penalty: 0.02
+    own_goal: 0.01
+    missed_penalty: 0.005
+    offside: 0.02
+    corner: 0.03
+    foul: 0.04
+
+metadata:
+  version: 1.0
+  created_by: Fabian

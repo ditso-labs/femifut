@@ -7,7 +7,7 @@
       || "PDH";  // fallback
   
     // 2️⃣ Construir rutas dinámicas
-    const baseDir    = `../leagues/${leagueSlug}`;
+    const baseDir    = `data/leagues/${leagueSlug}`;
     const statsFile  = `${baseDir}/stats.yaml`;
     const teamsDir   = `${baseDir}/teams`;
   

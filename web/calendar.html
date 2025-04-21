@@ -3,50 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calendario de la Primera División de Hoso (PDH)</title>
+  <title>Calendario de la liga</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container py-5">
-    <h1 class="mb-4 text-center">Calendario - Primera División de Hoso (PDH)</h1>
+    <h1 id="leagueTitle" class="mb-4 text-center">Calendario de la liga</h1>
     <div id="schedule" class="accordion"></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <script>
     (async () => {
-      const leagueSlug = 'PDH';
+      // 1️⃣ Detectar slug de liga desde URL (?league=PDH o último segmento)
+      const url = new URL(window.location.href);
+      const paramLeague = url.searchParams.get("league");
+      let leagueSlug = paramLeague || url.pathname.replace(/\/$/, '').split('/').pop();
+      if (!leagueSlug) leagueSlug = 'PDH';
+
+      // Actualizar título con slug
+      document.getElementById('leagueTitle').textContent = `Calendario - ${leagueSlug}`;
+
+      // 2️⃣ Cargar lista de equipos para nombres completos
+      const teamsListFile = `data/${leagueSlug}/teams_list.yaml`;
+      let teams = [];
+      try {
+        const resTeams = await fetch(teamsListFile);
+        const txtTeams = await resTeams.text();
+        teams = jsyaml.load(txtTeams).teams || [];
+      } catch {
+        console.warn(`No se pudo cargar teams_list.yaml para ${leagueSlug}`);
+      }
+      const teamNames = {};
+      teams.forEach(fullName => {
+        const slug = fullName
+          .toLowerCase()
+          .normalize('NFD').replace(/[̀-ͯ]/g, '')
+          .replace(/[^a-z0-9]/g, '');
+        teamNames[slug] = fullName;
+      });
+
+      // 3️⃣ Cargar calendario
       const scheduleFile = `data/${leagueSlug}/schedule.yml`;
+      let rounds = {};
       try {
         const res = await fetch(scheduleFile);
         const text = await res.text();
         const data = jsyaml.load(text);
-        const rounds = data.schedule || data.round || {};
-        const container = document.getElementById('schedule');
-        let idx = 0;
-        for (const [round, matches] of Object.entries(rounds)) {
-          idx++;
-          const card = document.createElement('div');
-          card.className = 'accordion-item';
-          card.innerHTML = `
-            <h2 class="accordion-header" id="heading${idx}">
-              <button class="accordion-button ${idx===1?'':'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${idx}" aria-expanded="${idx===1}" aria-controls="collapse${idx}">
-                ${round}
-              </button>
-            </h2>
-            <div id="collapse${idx}" class="accordion-collapse collapse ${idx===1?'show':''}" aria-labelledby="heading${idx}" data-bs-parent="#schedule">
-              <div class="accordion-body">
-                <ul class="list-group">
-                  ${matches.map(m => `<li class="list-group-item">${m.home} vs ${m.away}</li>`).join('')}
-                </ul>
-              </div>
-            </div>
-          `;
-          container.appendChild(card);
-        }
+        rounds = data.schedule || data.round || {};
       } catch (e) {
         console.error(e);
         document.getElementById('schedule').innerHTML = '<p class="text-danger text-center">Error al cargar el calendario.</p>';
+        return;
+      }
+
+      // 4️⃣ Renderizar acordeón
+      const container = document.getElementById('schedule');
+      let idx = 0;
+      for (const [round, matches] of Object.entries(rounds)) {
+        idx++;
+        const itemsHtml = matches.map(m => {
+          const homeName = teamNames[m.home] || m.home;
+          const awayName = teamNames[m.away] || m.away;
+          return `<li class="list-group-item">${homeName} vs ${awayName}</li>`;
+        }).join('');
+        const cardHtml = `
+          <h2 class="accordion-header" id="heading${idx}">
+            <button class="accordion-button ${idx===1?'':'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${idx}" aria-expanded="${idx===1}" aria-controls="collapse${idx}">
+              ${round}
+            </button>
+          </h2>
+          <div id="collapse${idx}" class="accordion-collapse collapse ${idx===1?'show':''}" aria-labelledby="heading${idx}" data-bs-parent="#schedule">
+            <div class="accordion-body">
+              <ul class="list-group">
+                ${itemsHtml}
+              </ul>
+            </div>
+          </div>
+        `;
+        const card = document.createElement('div');
+        card.className = 'accordion-item';
+        card.innerHTML = cardHtml;
+        container.appendChild(card);
       }
     })();
   </script>

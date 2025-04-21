@@ -22,8 +22,23 @@ jobs:
 
       - name: Copy data files into web/data
         run: |
+          # limpiar y recrear carpeta base
+          rm -rf web/data
           mkdir -p web/data
-          cp leagues/PDH/*.yaml web/data/
+
+          for league_dir in leagues/*; do
+            if [ -d "$league_dir" ]; then
+              league=$(basename "$league_dir")
+              mkdir -p "web/data/$league"
+              for file in stats.yaml teams_list.yml schedule.yml; do
+                src="$league_dir/$file"
+                dst="web/data/$league/$file"
+                if [ -f "$src" ]; then
+                  cp "$src" "$dst"
+                fi
+              done
+            fi
+          done
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -34,4 +49,3 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           allow_empty_commit: true   # en caso de no cambios
-
